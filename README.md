@@ -10,7 +10,7 @@ Select a team captain (with or without help from mentor/instructor/supervisor)
 
 Record your names here in this format-
 1. Team captain Xiao Wen, xw2943
-2. Member Xiao Wen, xw2943
+
 
 
 
@@ -32,4 +32,11 @@ The CourseInfo folder has the templates for your  reports, progress log, meeting
 4. Meeting Minutes
 
 The code can be placed in a folder named code, and the remaining files can be placed as .pdf files in the root directory.
+
+
+## Project Outlines
+
+
+
+
    
