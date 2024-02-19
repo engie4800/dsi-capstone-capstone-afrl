@@ -35,7 +35,28 @@ The code can be placed in a folder named code, and the remaining files can be pl
 
 
 ## Project Outlines
-More to come later 
+#### Geometric Partition Entropy for identifying Optimal Training Set for Classification Tasks
+
+THE OBJECTIVE:  to be able to identify subsamples of large training data sets so that neural network classifiers perform almost as well as they would if trained on the full original training data.
+
+Although there is a general understanding that more training data leads to better performance, and thus smaller data sets lead to poorer outcomes, this is not entirely true. Data-efficient learning is a large research area and we will not attempt to solve the problem in generality. The goal of this project is to optimize the sub-selection from larger data sets, so that the performance remains as close as possible. It is an assumption of ours that what matters most in the training of neural network classifiers is the density distribution of the data set in the latent feature space, and so our goal is to identify if a subset of the data exhibits the same density distribution as the original. 
+
+Currently, we are using Cifar-10 and a sample CNN to conduct the following steps:
+
+1. Map pictures into feature space (each picture is regarded as a vector) and therefore we have a matrix with the dimension of number of features times number of vectors (number of pictures). 
+
+2. Apply SVD to this matrix:
+   i) Will have one matrix vectored in the feature space.
+   ii) Will have a matrix of singular values (the middle diagonal matrix). These values are the variances associated with the data in the direction of the singular vectors. The first largest singular value is the variance in the first singular vector direction.
+   iii) Will have one matrix vectored in the data space. (picture)
+
+3. Apply SVD to several smaller subsamples of the whole dataset. So, we will have singular value vectors with respect to these subsamples as well as one with respect to the whole dataset. 
+
+4. Figure out whether singular value vectors of these subsamples are pointing in the same direction as the singular value vector of the whole dataset (can use dot product etc.)
+
+5. If they share similar directions as the whole dataset one, then figure out whether they are similar to the whole dataset in geometry/distribution by inputting the singular value vectors of both subsamples and the whole dataset into Geometric Partition Entropy/Boltzmann Shannon interaction Entropy. 
+
+6. If they are, then we can expect similarly good ML model performance as the one associated with the whole dataset even if we use these subsamples to train the model rather than the whole dataset. 
 
 
 
